@@ -1,7 +1,8 @@
 import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
 
-dotenv.config(); 
+dotenv.config({ path: './Backend/.env' });
+
 
 let pool;
 
@@ -19,5 +20,5 @@ try {
 } catch (error) {
   console.error('Error al conectar con la base de datos:', error);
 }
+export { pool };
 
-export default pool;

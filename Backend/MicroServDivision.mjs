@@ -22,7 +22,7 @@ const options = {
     },
     servers: [{ url: 'http://localhost:3003' }],
   },
-  apis: ['./backend/MicroServDivision.mjs'],
+  apis: ['./Backend/MicroServDivision.mjs'],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

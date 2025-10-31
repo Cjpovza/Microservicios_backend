@@ -20,7 +20,7 @@ const options = {
     },
     servers: [{ url: 'http://localhost:3002' }],
   },
-  apis: ['./backend/MicroServMultiplicacion.mjs'],
+  apis: ['./Backend/MicroServMultiplicacion.mjs'],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

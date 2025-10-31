@@ -20,7 +20,7 @@ const options = {
     },
     servers: [{ url: 'http://localhost:3000' }],
   },
-  apis: ['./backend/MicroServSuma.mjs'],
+  apis: ['./Backend/MicroServSuma.mjs'],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

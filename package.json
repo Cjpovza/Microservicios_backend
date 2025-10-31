@@ -5,12 +5,12 @@
   "main": "Backend/RegistrosService.mjs",
   "type": "module",
   "scripts": {
-   "start": "node Backend/RegistrosService.mjs",
-  "start:suma": "node Backend/MicroServSuma.mjs",
-  "start:resta": "node Backend/MicroServResta.mjs",
-  "start:multiplicacion": "node Backend/MicroServMultiplicacion.mjs",
-  "start:division": "node Backend/MicroServDivision.mjs",
-  "start:registros": "node Backend/RegistrosService.mjs",
+    "start": "node Backend/RegistrosService.mjs",
+    "start:suma": "node Backend/MicroServSuma.mjs",
+    "start:resta": "node Backend/MicroServResta.mjs",
+    "start:multiplicacion": "node Backend/MicroServMultiplicacion.mjs",
+    "start:division": "node Backend/MicroServDivision.mjs",
+    "start:registros": "node Backend/RegistrosService.mjs",
     "start:all": "concurrently \"npm run start:suma\" \"npm run start:resta\" \"npm run start:multiplicacion\" \"npm run start:division\" \"npm run start:registros\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,8 +19,9 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
-    "mysql2": "^3.15.2",
+    "mysql2": "^3.15.3",
     "node-fetch": "^3.3.2",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"

@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { pool } from './db.mjs'; 
+import { pool } from './db.mjs';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
 
@@ -19,7 +19,7 @@ const options = {
     },
     servers: [{ url: 'http://localhost:3004' }],
   },
-  apis: ['./backend/RegistrosService.mjs'],
+  apis: ['./Backend/RegistrosService.mjs'],
 };
 
 
