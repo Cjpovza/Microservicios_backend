@@ -1,12 +1,23 @@
 import mysql from 'mysql2/promise';
+import dotenv from 'dotenv';
 
-export const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'microservicios2_db',
-  port: process.env.DB_PORT ? Number(process.env.DB_PORT) : 3306,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
-});
+dotenv.config(); 
+
+let pool;
+
+try {
+  // Railway usa la variable MYSQLPUBLICURL o MYSQL_URL según el caso
+  const dbUrl = process.env.MYSQLPUBLICURL || process.env.MYSQL_PUBLIC_URL || process.env.MYSQL_URL;
+
+  if (!dbUrl) {
+    throw new Error('No se encontró la variable de conexión (MYSQL_PUBLIC_URL o MYSQL_URL)');
+  }
+
+  pool = mysql.createPool(dbUrl);
+
+  console.log('Conexión establecida exitosamente con la base de datos en Railway.');
+} catch (error) {
+  console.error('Error al conectar con la base de datos:', error);
+}
+
+export default pool;
