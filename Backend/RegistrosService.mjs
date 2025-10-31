@@ -213,8 +213,7 @@ app.delete('/registros/:id', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3004;
-app.listen(PORT, () => {
-  console.log(`Microservicio Registros corriendo en http://localhost:${PORT}`);
-  console.log(`Swagger disponible en http://localhost:${PORT}/api-docs`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Microservicio Registros corriendo en http://0.0.0.0:${PORT}`);
+  console.log(`Swagger disponible en http://0.0.0.0:${PORT}/api-docs`);
 });
