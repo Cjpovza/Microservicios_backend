@@ -212,7 +212,15 @@ app.delete('/registros/:id', async (req, res) => {
     res.status(500).json({ error: 'Error al eliminar registro' });
   }
 });
+// Configuración dinámica del puerto
+const PORT = process.env.PORT || 3004;
 
+// Actualizamos el servidor de Swagger dinámicamente según el entorno
+options.definition.servers = [
+  { url: process.env.RAILWAY_STATIC_URL || `http://localhost:${PORT}` }
+];
+
+// Inicialización del servidor Express
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Microservicio Registros corriendo en http://0.0.0.0:${PORT}`);
   console.log(`Swagger disponible en http://0.0.0.0:${PORT}/api-docs`);
