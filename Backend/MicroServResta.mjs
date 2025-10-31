@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const REGISTROS_URL = 'http://localhost:3004/registros';
+const REGISTROS_URL = process.env.REGISTROS_URL ||'http://localhost:3004/registros';
 
 
 const options = {
@@ -166,5 +166,5 @@ app.post('/resta', async (req, res) => {
   res.json({ metodo: 'resta', dato1, dato2, resultado });
 });
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Microservicio Resta corriendo en http://localhost:${PORT}`));

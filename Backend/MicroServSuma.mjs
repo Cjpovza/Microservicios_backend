@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const REGISTROS_URL = 'http://localhost:3004/registros'; 
+const REGISTROS_URL = process.env.REGISTROS_URL || 'http://localhost:3004/registros'; 
 
 const options = {
   definition: {
@@ -174,5 +174,5 @@ app.post('/suma', async (req, res) => {
   res.json({ metodo: 'suma', dato1, dato2, resultado });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Microservicio Suma en http://localhost:${PORT}`));

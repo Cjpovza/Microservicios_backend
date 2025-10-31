@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const REGISTROS_URL = 'http://localhost:3004/registros';
+const REGISTROS_URL = process.env.REGISTROS_URL || 'http://localhost:3004/registros';
 
 const options = {
   definition: {
@@ -164,5 +164,5 @@ if (!validarNumeros(dato1, dato2, res)) return;
   res.json({ metodo: 'multiplicacion', dato1, dato2, resultado });
 });
 
-const PORT = 3002;
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => console.log(`Microservicio Multiplicacion corriendo en http://localhost:${PORT}`));

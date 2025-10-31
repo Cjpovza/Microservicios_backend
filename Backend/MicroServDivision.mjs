@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const REGISTROS_URL = 'http://localhost:3004/registros'; 
+const REGISTROS_URL = process.env.REGISTROS_URL || 'http://localhost:3004/registros'; 
 
 
 const options = {
@@ -179,5 +179,5 @@ app.post('/division', async (req, res) => {
   res.json({ metodo: 'division', dato1, dato2, resultado });
 });
 
-const PORT = 3003;
+const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => console.log(`Microservicio División corriendo en http://localhost:${PORT}`));
