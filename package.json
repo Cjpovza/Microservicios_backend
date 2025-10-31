@@ -1,0 +1,30 @@
+{
+  "name": "microservicios2",
+  "version": "1.0.0",
+  "description": "Proyecto de microservicios matemáticos e inserción de registros",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start:suma": "node backend/MicroServSuma.mjs",
+    "start:resta": "node backend/MicroServResta.mjs",
+    "start:multiplicacion": "node backend/MicroServMultiplicacion.mjs",
+    "start:division": "node backend/MicroServDivision.mjs",
+    "start:registros": "node backend/RegistrosService.mjs",
+    "start:all": "concurrently \"npm run start:suma\" \"npm run start:resta\" \"npm run start:multiplicacion\" \"npm run start:division\" \"npm run start:registros\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.2",
+    "node-fetch": "^3.3.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
