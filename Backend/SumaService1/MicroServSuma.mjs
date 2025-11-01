@@ -175,4 +175,12 @@ app.post('/suma', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Microservicio Suma en http://localhost:${PORT}`));
+
+options.definition.servers = [
+  { url: process.env.RAILWAY_STATIC_URL || `http://localhost:${PORT}` }
+];
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Microservicio Suma corriendo en http://0.0.0.0:${PORT}`);
+  console.log(`Swagger disponible en http://0.0.0.0:${PORT}/api-docs`);
+});
