@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 const REGISTROS_URL = process.env.REGISTROS_URL ||'http://localhost:3004/registros';
-
+console.log("REGISTROS_URL actual:", REGISTROS_URL);
 
 const options = {
   definition: {
@@ -166,5 +166,14 @@ app.post('/resta', async (req, res) => {
   res.json({ metodo: 'resta', dato1, dato2, resultado });
 });
 
+
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`Microservicio Resta corriendo en http://localhost:${PORT}`));
+
+options.definition.servers = [
+  { url: process.env.RAILWAY_STATIC_URL || `http://localhost:${PORT}` }
+];
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Microservicio Suma corriendo en http://0.0.0.0:${PORT}`);
+  console.log(`Swagger disponible en http://0.0.0.0:${PORT}/api-docs`);
+});
