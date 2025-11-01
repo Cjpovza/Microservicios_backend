@@ -9,6 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 const REGISTROS_URL = process.env.REGISTROS_URL || 'http://localhost:3004/registros'; 
+console.log("REGISTROS_URL actual:", REGISTROS_URL);
 
 const options = {
   definition: {
